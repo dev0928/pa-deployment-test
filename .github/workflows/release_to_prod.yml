@@ -14,8 +14,8 @@ jobs:
       #You can specify the solution name here
       solution_name: PowerAppsDeployment
       #Update your values here
-      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONEMNT_URL}}
-      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PROD_ENVIRONEMNT_URL}}
+      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL}}
+      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PROD_ENVIRONMENT_URL}}
       USERNAME: ${{ secrets.USERNAME}}
     secrets:
       envSecret: ${{ secrets.PASSWORD }}
