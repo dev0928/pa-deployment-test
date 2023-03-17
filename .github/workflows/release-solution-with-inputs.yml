@@ -36,7 +36,7 @@ on:
         description: 'Production environment url.'
         type: string
         required: true
-      USER_NAME: 
+      USERNAME: 
         description: 'User name'
         type: string
         required: true
