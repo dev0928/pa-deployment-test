@@ -93,7 +93,7 @@ jobs:
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: ${{secrets.PRODUCTION_ENVIRONMENT_URL}}
+        environment-url: ${{secrets.PROD_ENVIRONMENT_URL}}
         user-name: ${{ secrets.USERNAME }}
         password-secret: ${{ secrets.PASSWORD }}
         solution-file: ${{ inputs.solution_release_folder}}/${{ inputs.solution_name }}_managed.zip
