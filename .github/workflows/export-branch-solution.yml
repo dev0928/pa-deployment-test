@@ -24,10 +24,6 @@ on:
        required: true
        default: solutions/
 
-env:
-#edit your values here
-  ENVIRONMENT_URL: ${{ secrets.DEV_ENV_URL }}
-  USERNAME: ${{ secrets.USERNAME }}
 
 permissions:
   contents: write
@@ -35,6 +31,7 @@ permissions:
 jobs:
   export-from-dev:
     runs-on: windows-latest
+    environment: development
     env:
       RUNNER_DEBUG: 1
 
@@ -46,7 +43,7 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
-        environment-url: ${{secrets.DEV_ENVIRONMENT_URL}}
+        environment-url: ${{env.DEV_ENVIRONMENT_URL}}
         user-name: ${{secrets.USERNAME}}
         password-secret: ${{ secrets.PASSWORD }}
 
