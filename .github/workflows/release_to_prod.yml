@@ -1,0 +1,21 @@
+name: Release action
+# Call the reusable workflow release-solution-with-inputs.yml
+# Release your solution to prod when you create a new release.
+
+on:
+  release:
+      types: [created]        
+permissions:
+  contents: write
+jobs:
+  Release-solution-to-production:
+    uses: ./.github/workflows/release-solution-with-inputs.yml
+    with:
+      #You can specify the solution name here
+      solution_name: PowerAppsDeployment
+      #Update your values here
+      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONEMNT_URL}}
+      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PROD_ENVIRONEMNT_URL}}
+      USERNAME: ${{ secrets.USERNAME}}
+    secrets:
+      envSecret: ${{ secrets.PASSWORD }}
