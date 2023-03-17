@@ -16,6 +16,6 @@ jobs:
       #Update your values here
       BUILD_ENVIRONMENT_URL: "https://org74c7a618.crm.dynamics.com"
       PRODUCTION_ENVIRONMENT_URL: "https://org8dbfc283.crm.dynamics.com"
-      USERNAME: "SakuRamamoorthy@cu0320.onmicrosoft.com"
     secrets:
+      envUser: ${{secrets.USERNAME}}
       envSecret: ${{secrets.PASSWORD}}
