@@ -4,32 +4,8 @@ name: Release action
 
 on:
   release:
-    types: [created]
-  workflow_dispatch:        
-    inputs: 
-      #Do Not change these values
-      #Values are set by the caller
-      #caller sample: release-action-call.ymnl
-      solution_name:
-        description: 'The solution name.'
-        type: string
-        default: PowerAppsDeployment       
-      solution_shipping_folder:
-        description: 'folder name for staging the exported solution *do not change*'        
-        type: string
-        default: out/ship/
-      solution_outbound_folder:
-        description: 'staging the unpacked solution folder before check-in *do not change*'
-        type: string
-        default: out/solutions/
-      solution_source_folder: 
-        description: 'folder name to be created and checked in *do not change*'
-        type: string
-        default: solutions/
-      solution_release_folder:
-        description: 'folder where the released binaries are going to be hosted *do not change*'
-        type: string
-        default: out/release
+      types: [created]
+
 permissions:
   contents: write
 jobs:
@@ -94,14 +70,14 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship
+        path: out/release
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
         environment-url: ${{secrets.PRODUCTION_ENVIRONMENT_URL}}
         user-name: ${{ secrets.USERNAME }}
         password-secret: ${{ secrets.PASSWORD }}
-        solution-file: out/release/PowerAppsDeployment_managed.zip
+        solution-file: out/release/PowerAppsDeployment.zip
         force-overwrite: true
         publish-changes: true
 
