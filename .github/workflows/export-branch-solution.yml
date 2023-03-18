@@ -52,7 +52,7 @@ jobs:
       with:
         environment-url: ${{secrets.DEV_ENVIRONMENT_URL}}
         user-name: ${{secrets.USERNAME}}
-        password-secret: ${{ secrets.password }}
+        password-secret: ${{ secrets.PASSWORD }}
         solution-name: ${{ github.event.inputs.solution_name }}
         solution-output-file: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
 
