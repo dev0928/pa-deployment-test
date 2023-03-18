@@ -5,7 +5,7 @@ name: Release action
 on:
   release:
       types: [created]
-  workflow_call:        
+  workflow_dispatch:        
       inputs: 
         #Do Not change these values
         #Values are set by the caller
